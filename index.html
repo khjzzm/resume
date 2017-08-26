@@ -1,8 +1,31 @@
 <!doctype html>
 <html>
 <head>
+    <meta charset="UTF-8">
     <link rel="stylesheet" href="reset.css">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400" rel="stylesheet">
+    <script src="script/jquery-3.2.1.min.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function(){
+            $(".top").on("click",function(event){
+                event.preventDefault();
+                $("html, body").animate({scrollTop:0}, 500)});
+            $(".top").hide();
+            $(function () {
+                $(window).scroll(function () {
+                    if ($(this).scrollTop() > 100) {
+                        $('.top').fadeIn();
+                    } else {
+                        $('.top').fadeOut();
+                    }
+                });
+            });
+            $(".scroll").on("click",function(event){
+                event.preventDefault();
+                $('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
+            });
+        });
+    </script>
     <style>
         body{
             margin: 0;
@@ -35,38 +58,158 @@
             text-align: center;
         }
         .scen header h1{
-            font-size: 2rem;
+            font-size: 3rem;
             margin-bottom: 1rem;
             font-weight: 400;
         }
         .scen header h1:after{
             content: '';
-            border-bottom:1px solid white;
-            width:10rem;
+            border-bottom:2px solid white;
+            width:15rem;
             display: block;
             margin: 0 auto;
             margin-top: 1rem;
         }
+        .article{
+            font-family: 'NanumSquare';
+        }
+        .article.text{
+            font-size:1rem;
+        }
+        .article.left{
+            text-align:left;
+        }
+        a:link {
+            color: white;
+            text-decoration: none;
+        }
+        a:visited {
+            color: white;
+            text-decoration: none;
+        }
+        a:hover {
+            color: blue;
+            text-decoration: underline;
+        }
+        .go_top {
+            position:fixed;
+            bottom:30px;
+            right:30px;
+            width:40px;
+            height:40px;
+            text-align:center;
+            border-radius:40px;
+            background-color:rgba(102,102,102,.7)
+        }
+        .go_top span {
+            display:block;
+            padding-top:12px;
+            font-size:11px;
+            color:#fff;
+        }
+        @font-face {
+            font-family: 'NanumSquare';
+            src: url(NanumSquare/NanumSquareR.eot);
+            src: url(NanumSquare/NanumSquareR.eot?#iefix) format('embedded-opentype'),
+            url(NanumSquare/NanumSquareR.woff) format('woff'),
+            url(NanumSquare/NanumSquareR.ttf) format('truetype');
+        }
+        #fixed-menu li{
+            display: inline-block;
+        }
+        #fixed-menu {
+            width: 100%;
+            background: white;
+            position: fixed;
+            top:0px;
+            left: 0px;
+        }
+        .btn{
+            text-decoration: none;
+            font-size: 2rem;
+            color: white;
+            padding: 10px 20px 10px 20px;
+            margin: 20px;
+            display: inline-block;
+            border-radius: 10px;
+            transition:all 0.1s;
+            text-shadow: 0px -2px rgba(0, 0, 0, 0.44);
+            font-family: 'Lobster', cursive;
+        }
+        .btn:active{
+            transform: translateY(3px);
+        }
+        .btn.blue{
+            background-color: #539bd9;
+            border-bottom: 5px solid #294864;
+        }
+        .btn.blue:active{
+            border-bottom: 2px solid #294864;
+        }
+        .btn.red{
+            background-color: #dd7474;
+            border-bottom: 5px solid #954f4f;
+        }
+        .btn.red:active{
+            border-bottom: 2px solid #954f4f;
+        }
     </style>
+    <title>김현진</title>
 </head>
 <body>
-<section class="scen one">
+
+<div id="fixed-menu">
+    <ul>
+        <li> <a href="#one" class="scroll btn blue">kimhyunjin</a></li>
+        <li> <a href="#two" class="scroll btn blue">Handling skill & Certificate</a></li>
+        <li> <a href="#three" class="scroll btn red">Contact</a></li>
+        <li> <a href="#top" class="top"><div class="go_top"><span>TOP</span></div></a> </li>
+    </ul>
+</div>
+
+<section class="scen one" id="one">
     <header>
-        <h1>kimhyunjin.</h1>
-        I did study.
+        <h1>Kimhyunjin.</h1>
+        <div class="article text">
+            전자상거래 전공 <br>
+            컴퓨터공학과 부전공 <br>
+            취미 : 공부 <br>
+        </div>
     </header>
 </section>
-<section class="scen two">
+
+<section class="scen two" id="two">
     <header>
-        <h1>Lorem ipsum dolor sit amet.</h1>
-        I have to study.
+        <h1>Handling skill.</h1>
+        <div class="article">
+            Java & Spring Framework <br>
+            Html5 & CSS3 & JavaScript<br>
+            Oracle & MariaDB & PostgresSQL<br>
+            JetBrains (IntelliJ, DataGrip, WebStorm) <br>
+        </div>
+        <br><br>
+        <h1>Certificate.</h1>
+        <div class="article">
+            정보처리기사<br>
+            사무자동화산업기사<br>
+            리눅스마스터2급<br>
+        </div>
     </header>
 </section>
-<section class="scen three">
+
+<section class="scen three" id="three">
     <header>
-        <h1>kimhyunjin.</h1>
-        why did you come to korea?
+        <h1>Contact.</h1><br><br>
+        <div class="article left">
+            Email : <a href="mailto:khjzzm@gmail.com" target="_blank">khjzzm@gmail.com</a> <br>
+            GitHub : <a href="https://github.com/khjzzm" target="_blank">https://github.com/khjzzm</a> <br>
+            blog : <a href="http://sendthesignal.tistory.com/" target="_blank">http://sendthesignal.tistory.com</a> <br><br>
+            <img src="img/photo1.jpeg" style="height: 300px; width: 300px;">
+            <img src="img/photo2.jpeg" style="height: 300px; width: 300px;"> <br><br>
+            thank you :)
+        </div>
     </header>
 </section>
+<p style="text-align: right">2017-08-26</p>
 </body>
 </html>
