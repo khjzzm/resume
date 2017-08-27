@@ -47,6 +47,9 @@
         .scen.three{
             background-image: url(img/heic1608a.jpg);
         }
+        .scen.four{
+            background-image: url(img/heic0509j.jpg);
+        }
         .scen header{
             color: white;
             max-width: 80%;
@@ -110,27 +113,24 @@
             url(NanumSquare/NanumSquareR.woff) format('woff'),
             url(NanumSquare/NanumSquareR.ttf) format('truetype');
         }
-        #fixed-menu li{
+        #fixed-nav-menu li{
             display: inline-block;
         }
-        #fixed-menu {
+        #fixed-nav-menu {
+            text-align: right;
             width: 100%;
-            background: white;
             position: fixed;
-            top:0px;
-            left: 0px;
         }
         .btn{
             text-decoration: none;
             font-size: 1rem;
             color: white;
             padding: 10px 20px 10px 20px;
-            margin: 5px;
+            margin: 10px 5px 10px 5px;
             display: inline-block;
             border-radius: 3px;
             transition:all 0.1s;
             text-shadow: 0px -2px rgba(0, 0, 0, 0.44);
-            font-family: 'Lobster', cursive;
         }
         .btn:active{
             transform: translateY(6px);
@@ -140,25 +140,25 @@
             border-bottom: 5px solid #294864;
         }
         .btn.blue:active{
-            border-bottom: 2px solid #294864;
+            border-bottom: 10px solid #294864;
         }
         .btn.red{
             background-color: #dd7474;
             border-bottom: 5px solid #954f4f;
         }
         .btn.red:active{
-            border-bottom: 2px solid #954f4f;
+            border-bottom: 10px solid #954f4f;
         }
     </style>
     <title>김현진</title>
 </head>
 <body>
-
-<div id="fixed-menu">
+<div id="fixed-nav-menu">
     <ul>
-        <li> <a href="#one" class="scroll btn blue">kimhyunjin</a></li>
-        <li> <a href="#two" class="scroll btn blue">Handling skill & Certificate</a></li>
-        <li> <a href="#three" class="scroll btn red">Contact</a></li>
+        <li> <a href="#one" class="scroll btn blue">김현진</a></li>
+        <li> <a href="#two" class="scroll btn blue">보유기술</a></li>
+        <li> <a href="#three" class="scroll btn blue">자격증</a></li>
+        <li> <a href="#four" class="scroll btn red">연락</a></li>
         <li> <a href="#top" class="top"><div class="go_top"><span>TOP</span></div></a> </li>
     </ul>
 </div>
@@ -169,7 +169,6 @@
         <div class="article text">
             전자상거래 전공 <br>
             컴퓨터공학과 부전공 <br>
-            취미 : 공부 <br>
         </div>
     </header>
 </section>
@@ -183,7 +182,11 @@
             Oracle & MariaDB & PostgresSQL<br>
             JetBrains (IntelliJ, DataGrip, WebStorm) <br>
         </div>
-        <br><br>
+    </header>
+</section>
+
+<section class="scen three" id="three">
+    <header>
         <h1>Certificate.</h1>
         <div class="article">
             정보처리기사<br>
@@ -193,7 +196,7 @@
     </header>
 </section>
 
-<section class="scen three" id="three">
+<section class="scen four" id="four">
     <header>
         <h1>Contact.</h1><br><br>
         <div class="article left">
