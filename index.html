@@ -10,6 +10,10 @@
             $(".top").on("click",function(event){
                 event.preventDefault();
                 $("html, body").animate({scrollTop:0}, 500)});
+         
+            $(".scroll").on("click",function(event){
+                event.preventDefault();
+                $('html,body').animate({scrollTop:$(this.hash).offset().top}, 500)});            
             $(".top").hide();
             $(function () {
                 $(window).scroll(function () {
@@ -19,11 +23,15 @@
                         $('.top').fadeOut();
                     }
                 });
+                $(window).scroll(function () {
+                    if ($(this).scrollTop() > 500) {
+                        $('header').css("height","60px").css("line-height","60px");
+                    } else {
+                        $('header').css("height","100px").css("line-height","100px");
+                    }
+                });
             });
-            $(".scroll").on("click",function(event){
-                event.preventDefault();
-                $('html,body').animate({scrollTop:$(this.hash).offset().top}, 500);
-            });
+
         });
     </script>
     <style>
@@ -50,7 +58,7 @@
         .scen.four{
             background-image: url(img/heic0509j.jpg);
         }
-        .scen header{
+        .scen article{
             color: white;
             max-width: 80%;
             position: relative;
@@ -60,12 +68,12 @@
             font-size: 1.5rem;
             text-align: center;
         }
-        .scen header h1{
+        .scen article p{
             font-size: 3rem;
             margin-bottom: 1rem;
             font-weight: 400;
         }
-        .scen header h1:after{
+        .scen article p:after{
             content: '';
             border-bottom:2px solid white;
             width:15rem;
@@ -73,16 +81,14 @@
             margin: 0 auto;
             margin-top: 1rem;
         }
-        .article{
-            font-family: 'NanumSquare';
-        }
+
         .article.text{
             font-size:1rem;
         }
         .article.left{
             text-align:left;
         }
-        a:link {
+        a:link.real {
             color: white;
             text-decoration: none;
         }
@@ -106,109 +112,130 @@
             font-size:11px;
             color:#fff;
         }
-        @font-face {
-            font-family: 'NanumSquare';
-            src: url(NanumSquare/NanumSquareR.eot);
-            src: url(NanumSquare/NanumSquareR.eot?#iefix) format('embedded-opentype'),
-            url(NanumSquare/NanumSquareR.woff) format('woff'),
-            url(NanumSquare/NanumSquareR.ttf) format('truetype');
-        }
-        #fixed-nav-menu li{
-            display: inline-block;
-        }
-        #fixed-nav-menu {
-            text-align: right;
-            width: 100%;
+
+        
+        header{
+            height: 100px;
+            line-height: 100px;
+            background-color: white;
             position: fixed;
+            width: 100%;
+            z-index: 9999;
+            top: 0;
+            left: 0;
+        }
+
+        .wrapper{
+            width: auto;
+            margin: 0 auto;
+        }
+        
+        .navbar-brand{
+            font-size: 2rem;
+            margin-left: 150px;
+            color: #777;
+            float: left;
+        }
+        
+        .menu{
+            float: right;
+            margin-right: 150px;
+        }
+        .menu li{
+            float: left;
+            text-shadow: 0 1px 0 rgba(255,255,255,.25);
+            
+        }
+        .menu a{
+            color: #777;
+            padding: 0 15px;
+            display: block;
         }
         .btn{
             text-decoration: none;
-            font-size: 1rem;
-            color: white;
-            padding: 10px 20px 10px 20px;
-            margin: 10px 5px 10px 5px;
+            font-size: 1em;
+            color: #777;
             display: inline-block;
-            border-radius: 3px;
-            transition:all 0.1s;
-            text-shadow: 0px -2px rgba(0, 0, 0, 0.44);
+            text-shadow: 0 1px 0 rgba(255,255,255,.25);
+            font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+            font-weight: 900;
+
         }
         .btn:active{
-            transform: translateY(6px);
+            transform: translateY(3px);
         }
-        .btn.blue{
-            background-color: #539bd9;
-            border-bottom: 5px solid #294864;
+        .btn:focus{
+            color: black;
         }
-        .btn.blue:active{
-            border-bottom: 10px solid #294864;
-        }
-        .btn.red{
-            background-color: #dd7474;
-            border-bottom: 5px solid #954f4f;
-        }
-        .btn.red:active{
-            border-bottom: 10px solid #954f4f;
+        .btn:hover{
+            color: black;
         }
     </style>
     <title>김현진</title>
 </head>
 <body>
-<div id="fixed-nav-menu">
-    <ul>
-        <li> <a href="#one" class="scroll btn blue">김현진</a></li>
-        <li> <a href="#two" class="scroll btn blue">보유기술</a></li>
-        <li> <a href="#three" class="scroll btn blue">자격증</a></li>
-        <li> <a href="#four" class="scroll btn red">연락처</a></li>
-        <li> <a href="#top" class="top"><div class="go_top"><span>TOP</span></div></a> </li>
-    </ul>
-</div>
+    
+<header>
+    <div class="wrapper">
+        <p class="navbar-brand">KIM HYUN JIN</p>
+        <nav>
+            <ul class="menu">
+                <li> <a href="#one" class="scroll btn">김현진</a></li>
+                <li> <a href="#two" class="scroll btn">보유기술</a></li>
+                <li> <a href="#three" class="scroll btn">자격증</a></li>
+                <li> <a href="#four" class="scroll btn">연락처</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
 <section class="scen one" id="one">
-    <header>
-        <h1>Kimhyunjin.</h1>
+    <article>
+        <p>Kimhyunjin.</p>
         <div class="article text">
             전자상거래 전공 <br>
             컴퓨터공학과 부전공 <br>
         </div>
-    </header>
+    </article>
 </section>
 
 <section class="scen two" id="two">
-    <header>
-        <h1>Handling skill.</h1>
+    <article>
+        <p>Handling skill.</p>
         <div class="article">
             Java & Spring Framework <br>
             Html5 & CSS3 & JavaScript<br>
             Oracle & MariaDB & PostgresSQL<br>
             JetBrains (IntelliJ, DataGrip, WebStorm) <br>
         </div>
-    </header>
+    </article>
 </section>
 
 <section class="scen three" id="three">
-    <header>
-        <h1>Certificate.</h1>
+    <article>
+        <p>Certificate.</p>
         <div class="article">
             정보처리기사<br>
             사무자동화산업기사<br>
             리눅스마스터2급<br>
         </div>
-    </header>
+    </article>
 </section>
 
 <section class="scen four" id="four">
-    <header>
-        <h1>Contact.</h1><br><br>
+    <article>
+        <p>Contact.</p><br><br>
         <div class="article left">
-            Email : <a href="mailto:khjzzm@gmail.com">khjzzm@gmail.com</a> <br>
-            GitHub : <a href="https://github.com/khjzzm" target="_blank">https://github.com/khjzzm</a> <br>
-            blog : <a href="http://sendthesignal.tistory.com/" target="_blank">http://sendthesignal.tistory.com</a> <br><br>
+            Email : <a href="mailto:khjzzm@gmail.com" class="real">khjzzm@gmail.com</a> <br>
+            GitHub : <a href="https://github.com/khjzzm" target="_blank" class="real">https://github.com/khjzzm</a> <br>
+            blog : <a href="http://sendthesignal.tistory.com/" target="_blank" class="real">http://sendthesignal.tistory.com</a> <br><br>
             <img src="img/photo1.jpeg" style="height: 300px; width: 300px;">
             <img src="img/photo2.jpeg" style="height: 300px; width: 300px;"> <br><br>
             thank you :)
         </div>
-    </header>
+    </article>
 </section>
 <p style="text-align: right">2017-08-26</p>
+<a href="#top" class="top"><div class="go_top"><span>TOP</span></div></a>
 </body>
 </html>
